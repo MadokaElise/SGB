@@ -1,10 +1,10 @@
 public class Personnage {
 	
 	
-	int mana;
-	int pvs;
-	int force;
-	int agilite;
+	private int mana;
+	private int pvs;
+	private int force;
+	private int agilite;
 	
 	
 	
@@ -26,6 +26,35 @@ public class Personnage {
 		
 	}
 	
+	public int getMana(){
+		
+		return mana;
+	}
 	
+	public int getPvs(){
+		
+		return pvs;
+	}
+	public int getForce(){
+		
+		return force;
+	}
+	public int getAgilite(){
+		
+		return agilite;
+	}
+
+	public void setPVs(int ppvs){
+		this.pvs=ppvs;
+	}
+	public void setMana(int pmana){
+		this.mana=pmana;
+	}
+	public void setForce(int pforce){
+		this.force=pforce;
+	}
+	public void setAgilite(int pagilite){
+		this.agilite=pagilite;
+	}
 }
 
