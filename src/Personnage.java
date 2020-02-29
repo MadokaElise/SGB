@@ -6,8 +6,7 @@ public class Personnage {
 	private int force;
 	private int agilite;
 	
-	
-	
+
 	public Personnage(){
 		
 		mana=0;

@@ -1,5 +1,4 @@
-import java.util.*;
-import javax.swing.JFrame;
+import java.util.Scanner;
 
 public class main {
 	
