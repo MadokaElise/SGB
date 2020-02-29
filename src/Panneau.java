@@ -8,19 +8,19 @@ import javax.swing.JPanel;
 public class Panneau extends JPanel {
   public void paintComponent(Graphics g){
     try {
-      int posX, posY ;
+      int posX, posY,Xmaison=-1,Ymaison=-1 ;
       // 0 : herbe , 2 chemin vert, 1: chemin hor, 3: virage bas gacuhe, 4 virage bas droite, 5 , virage haut gauche , 6 virage haut droite
       int tab[][] = { {0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                       {1,1,1,1,1,1,3,0,0,0,0,0,0,0},
-                      {0,0,0,0,0,0,2,0,0,0,0,0,0,0},
-                      {0,0,0,0,0,0,2,0,0,0,0,0,0,0},
-                      {0,0,0,0,0,0,2,0,0,0,0,0,0,0},
+                      {0,0,0,0,0,0,2,0,0,0,0,0,9,0},
+                      {0,0,10,0,0,0,2,0,11,0,9,0,8,0},
+                      {0,0,0,0,0,0,2,0,0,0,8,0,0,0},
                       {0,0,0,0,0,0,2,0,0,0,0,0,0,0},
                       {0,0,0,0,0,0,6,1,1,1,1,1,3,0},
-                      {0,0,0,0,0,0,0,0,0,0,0,0,2,0},
+                      {0,7,0,0,0,0,0,0,0,0,0,0,2,0},
                       {0,0,0,0,0,0,0,0,4,1,1,1,5,0},
                       {0,0,0,0,0,0,0,0,2,0,0,0,0,0},
-                      {0,0,7,0,0,0,0,0,2,0,0,0,0,0},
+                      {0,0,0,0,0,0,0,0,2,0,0,0,0,0},
                       {0,0,0,0,0,0,0,0,2,0,0,0,0,0},};
 
 
@@ -31,8 +31,11 @@ public class Panneau extends JPanel {
       Image virage_haut_gauche = ImageIO.read(new File("virage_haut_gauche.png"));
       Image virage_haut_droite = ImageIO.read(new File("virage_haut_droite.png"));
       Image herbe = ImageIO.read(new File("herbe.png"));
-      Image maison = ImageIO.read(new File("maison1.png"));
-
+      Image maison = ImageIO.read(new File("maison.png"));
+      Image arbreH = ImageIO.read(new File("arbre_haut.png"));
+      Image arbreB = ImageIO.read(new File("arbre_bas.png"));
+      Image fraise = ImageIO.read(new File("fraise_face.png"));
+      Image shiso = ImageIO.read(new File("shiso_face.png"));
 
       for (int y=0 ; y <=13 ; y ++){
         posX = y*70;
@@ -61,13 +64,32 @@ public class Panneau extends JPanel {
           }
           else if (tab[x][y] == 7){
             g.drawImage(herbe, posX , posY, this);
-            g.drawImage(maison, posX , posY, this);
+            Xmaison = posX;
+            Ymaison = posY;
           }
+          else if (tab[x][y] == 8){
+            g.drawImage(herbe, posX , posY, this);
+            g.drawImage(arbreB, posX , posY, this);
+          }
+          else if (tab[x][y] == 9){
+            g.drawImage(herbe, posX , posY, this);
+            g.drawImage(arbreH, posX , posY, this);
+          }
+          else if (tab[x][y] == 10){
+            g.drawImage(herbe, posX , posY, this);
+            g.drawImage(fraise, posX , posY, this);
+          }
+          else if (tab[x][y] == 11){
+            g.drawImage(herbe, posX , posY, this);
+            g.drawImage(shiso, posX , posY, this);
+          }
+
         }
       }
+      if ( (Xmaison != -1) && (Ymaison != -1) ) {
+          g.drawImage(maison, Xmaison , Ymaison, this);
+        }
 
-      Image img2 = ImageIO.read(new File("fraise_face.png"));
-      g.drawImage(img2, 0, 70, this);
       //Pour une image de fond
       //g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
     } catch (IOException e) {
