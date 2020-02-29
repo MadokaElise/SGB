@@ -20,7 +20,7 @@ public class Panneau extends JPanel {
                       {0,0,0,0,0,0,0,0,0,0,0,0,2,0},
                       {0,0,0,0,0,0,0,0,4,1,1,1,5,0},
                       {0,0,0,0,0,0,0,0,2,0,0,0,0,0},
-                      {0,0,0,0,0,0,0,0,2,0,0,0,0,0},
+                      {0,0,7,0,0,0,0,0,2,0,0,0,0,0},
                       {0,0,0,0,0,0,0,0,2,0,0,0,0,0},};
 
 
@@ -31,6 +31,9 @@ public class Panneau extends JPanel {
       Image virage_haut_gauche = ImageIO.read(new File("virage_haut_gauche.png"));
       Image virage_haut_droite = ImageIO.read(new File("virage_haut_droite.png"));
       Image herbe = ImageIO.read(new File("herbe.png"));
+      Image maison = ImageIO.read(new File("maison1.png"));
+
+
       for (int y=0 ; y <=13 ; y ++){
         posX = y*70;
         for (int x=0 ; x <=11 ; x ++) {
@@ -55,6 +58,10 @@ public class Panneau extends JPanel {
           }
           else if (tab[x][y] == 0){
             g.drawImage(herbe, posX , posY, this);
+          }
+          else if (tab[x][y] == 7){
+            g.drawImage(herbe, posX , posY, this);
+            g.drawImage(maison, posX , posY, this);
           }
         }
       }
